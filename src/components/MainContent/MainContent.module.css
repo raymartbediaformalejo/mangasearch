@@ -1,0 +1,22 @@
+@keyframes top-fluid-img {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
+
+.fluidimg {
+  background: linear-gradient(180deg, transparent, #000);
+  background-image: url("../../assets/top_wide.png");
+  height: 185px;
+  max-height: 185px;
+  position: relative;
+  background-repeat: repeat-x;
+  top: -95px;
+  z-index: -2;
+  opacity: 1;
+
+  animation: top-fluid-img 50s linear infinite;
+}

@@ -1,0 +1,26 @@
+.container {
+  width: 100%;
+  max-width: 1025px;
+  margin: 0 auto;
+}
+
+.inner-container {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  padding: 20px 25px;
+}
+
+.pagination {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  list-style-type: none;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  /* gap: 1rem; */
+  /* border: 1px solid red; */
+  color: #bebebe;
+  font-size: 0.8rem;
+}

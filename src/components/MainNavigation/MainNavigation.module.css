@@ -1,0 +1,54 @@
+.header {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+    180deg,
+    rgba(220, 9, 20, 0.5),
+    #dc0914 6%,
+    rgba(0, 0, 0, 0.8) 0,
+    rgba(220, 9, 20, 0)
+  );
+  color: white;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.header:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(220, 9, 20, 0.7),
+    #dc0914 6%,
+    #000 0,
+    rgba(220, 9, 20, 0)
+  );
+  transition: all 0.3s;
+}
+
+.header div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.header div a {
+  width: 100%;
+  text-align: center;
+  margin: 0 20%;
+}
+
+.header div a div {
+  width: 105px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+}
+
+.hamburger,
+.search {
+  font-size: 3.75rem;
+}
