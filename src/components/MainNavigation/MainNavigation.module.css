@@ -48,7 +48,28 @@
   height: auto;
 }
 
-.hamburger,
-.search {
+.hamburger {
   font-size: 3.75rem;
+}
+
+.search-container {
+  display: grid;
+  place-items: center;
+  width: 4rem;
+}
+
+.search-inner-container {
+  width: 100%;
+  text-decoration: none;
+  /* border: 1px solid red; */
+  color: rgb(202, 202, 202);
+}
+
+.search {
+  width: 100%;
+  font-size: 1.625rem;
+}
+
+.search-btn-show {
+  visibility: hidden;
 }

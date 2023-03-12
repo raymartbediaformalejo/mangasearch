@@ -1,5 +1,5 @@
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
 import slide1 from "../../assets/slides/slide1.jpg";
 import slide2 from "../../assets/slides/slide2.jpg";
@@ -28,23 +28,20 @@ const MangaCarousel = () => {
           border: "none",
           backgroundClip: "content-box",
           boxSizing: "content-box",
-          marginRight: 20,
-          marginLeft: 20,
+          marginLeft: 16,
+          marginRight: 16,
+
           borderRadius: 10,
-          transitionDuration: 0.2,
-          transitionTimingFunction: "ease",
-          transitionDelay: 0,
-          transitionProperty: "all",
+          transition: "all .2s",
         };
         const style = isSelected
           ? {
               ...defStyle,
               backgroundColor: "#ffd600",
+              marginLeft: 12,
+              marginRight: 12,
               width: 20,
-              transitionDuration: 0.2,
-              transitionTimingFunction: "ease",
-              transitionDelay: 0,
-              transitionProperty: "all",
+              transition: "all .2s",
             }
           : { ...defStyle };
         return (

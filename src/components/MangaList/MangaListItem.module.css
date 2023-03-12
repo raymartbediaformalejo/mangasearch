@@ -2,14 +2,14 @@
   margin-bottom: 5px;
 }
 
-.container a {
+a {
   color: #fff;
   text-decoration: none;
 }
 
 .inner-container {
   width: 100%;
-  color: #fff;
+  /* color: #fff; */
 }
 
 .img {
@@ -54,13 +54,11 @@
   line-height: 1rem;
 }
 
-.container a:hover .title,
-.container a:active .title {
+.container:is(:hover, :focus) .title {
   color: yellow;
 }
 
-.container a:hover .description,
-.container a:active .description {
+.container:is(:hover, :focus) .description {
   height: 100px;
   position: relative;
   top: -100px;
@@ -89,13 +87,29 @@
   background-color: #6e6e6e;
 }
 
-.chapter:hover,
-.chapter:active,
-.chapter:hover:before {
+/* .container:has(a) .inner-container {
+  color: yellow;
+  border: 1px solid red;
+} */
+
+.container:has(:hover, :focus) .description {
+  height: 100px;
+  position: relative;
+  top: -100px;
+  padding: 45px 5px 15px 7px;
+  margin-bottom: -95px;
+  transition: all 0.3s;
+}
+
+.chapter:is(:hover, :focus) {
   background-color: #5d0914;
   color: #fff;
   border-radius: 0 0 10px 10px;
   transition: all 0.3s;
+}
+
+.chapter:hover::before {
+  background-color: #5d0914;
 }
 
 .chapter div {

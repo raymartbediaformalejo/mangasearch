@@ -1,17 +1,107 @@
-.search-container {
-  display: grid;
-  place-items: center;
-  width: 4rem;
+.maincontainer {
+  width: 100%;
+  margin: 25px auto;
+  padding-left: calc(0.5rem * 0);
+  padding-right: calc(0.5rem * 0);
 }
 
-.search-inner-container {
+.search-container {
+  margin: 25px 0;
+  position: relative;
+}
+
+.search-form {
+  position: relative;
   width: 100%;
   text-decoration: none;
-  /* border: 1px solid red; */
-  color: rgb(202, 202, 202);
+  letter-spacing: 0.08rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6e6e6e;
+  text-align: center;
+  line-height: 40px;
+  padding: 10px;
+  border: 0;
+  outline: none;
+  border-bottom: 1px solid rgba(220, 9, 20, 0);
+  transition: all 0.4s;
+  background: linear-gradient(90deg, transparent, #000 50%, transparent);
 }
 
-.search {
+.search-btn {
+  width: 3rem;
+  position: absolute;
+  top: 17px;
+  right: 12px;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  background-color: transparent;
+  border: 0;
+  color: #6e6e6e;
+  font-size: 1.6rem;
+}
+
+.search-form::before {
+  content: "";
+  width: 0;
+  display: block;
+  margin: 0 auto;
+  height: 1px;
+  opacity: 0.3;
+  background: linear-gradient(
+    90deg,
+    hsla(0, 0%, 100%, 0),
+    #e2e2e2 50%,
+    hsla(0, 0%, 100%, 0)
+  );
+}
+
+.search-container:hover .search-form,
+.search-form:focus,
+.search-form:not(:placeholder-shown),
+.search-btn:hover {
+  color: #fff;
+}
+
+.manga-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px 25px;
+}
+
+.manga-item {
+  min-width: 98px;
+  flex: 0 0 calc(33% - 2px);
+  padding: 5px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.image {
   width: 100%;
-  font-size: 1.625rem;
+  transition: all 0.2s;
+}
+
+.title {
+  font-size: 0.9rem;
+  line-height: 1.1rem;
+  margin-top: 4px;
+  overflow: hidden;
+  color: #fff;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.authors {
+  font-size: 8px;
+  line-height: 0.8rem;
+  color: #bebebe;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  margin-top: 2px;
 }

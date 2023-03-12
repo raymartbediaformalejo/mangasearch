@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import { BsFillStarFill } from "react-icons/bs";
-import classes from "./MangaItem.module.css";
+import classes from "./MangaListItem.module.css";
 
-const MangaItem = (props) => {
+const MangaListItem = (props) => {
   const [authors, setAuthors] = useState([]);
 
   useEffect(() => {
@@ -38,17 +39,15 @@ const MangaItem = (props) => {
   }
 
   return (
-    <>
+    <Link to={`/manga/${props.id}`}>
       <div className={classes.container}>
-        <a href="/">
-          <div className={classes["inner-container"]}>
-            <img className={classes.img} src={props.image} alt="manga" />
-            <div className={classes.description}>
-              <p className={classes.title}>{props.title}</p>
-              <p className={classes.author}>{authors}</p>
-            </div>
+        <div className={classes["inner-container"]}>
+          <img className={classes.img} src={props.image} alt="manga" />
+          <div className={classes.description}>
+            <p className={classes.title}>{props.title}</p>
+            <p className={classes.author}>{authors}</p>
           </div>
-        </a>
+        </div>
         <div className={classes.chapter}>
           <div>
             <p className={classes.rank}>#{props.rank}</p>
@@ -62,8 +61,8 @@ const MangaItem = (props) => {
           <p className={classes["total-chapter"]}>{mangaDesc}</p>
         </div>
       </div>
-    </>
+    </Link>
   );
 };
 
-export default MangaItem;
+export default MangaListItem;
