@@ -1,16 +1,16 @@
 @keyframes top-fluid-img {
   0% {
-    background-position: left;
+    background-position: 0%;
   }
   100% {
-    background-position: right;
+    background-position: 100%;
   }
 }
 
 .fluidimg {
   background: linear-gradient(180deg, transparent, #000);
   background-image: url("../../assets/top_wide.png");
-  height: 185px;
+  height: 120px;
   max-height: 185px;
   position: relative;
   background-repeat: repeat-x;
@@ -19,4 +19,15 @@
   opacity: 1;
 
   animation: top-fluid-img 50s linear infinite;
+}
+
+@media screen and (min-width: 768px) {
+  .fluidimg {
+    animation: top-fluid-img 30s linear infinite;
+  }
+}
+@media screen and (min-width: 768px) {
+  .fluidimg {
+    animation: top-fluid-img 15s linear infinite;
+  }
 }

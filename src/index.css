@@ -19,7 +19,7 @@ body {
   line-height: 1;
 }
 
-.carousel-root {
+/* .carousel-root {
   margin-top: -172px;
   background: linear-gradient(
     180deg,
@@ -42,7 +42,7 @@ body {
 
 .carousel .control-dots {
   position: relative !important;
-}
+} */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

@@ -1,13 +1,13 @@
-import MangaCarousel from "../Carousel/Carousel";
 import MangaList from "../MangaList/MangaLists";
 import classes from "./MainContent.module.css";
+import RecommendationManga from "./Recommendation/Recommendation";
 
 const MainContent = () => {
   return (
     <>
       <div className={classes.fluidimg}></div>
-      <MangaCarousel />
       <MangaList />
+      <RecommendationManga />
     </>
   );
 };

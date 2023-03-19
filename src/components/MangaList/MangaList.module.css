@@ -2,13 +2,30 @@
   width: 100%;
   max-width: 1025px;
   margin: 0 auto;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.15) 90%,
+    transparent
+  );
+  overflow: hidden;
+  margin-top: -60px;
+}
+
+.top-manga {
+  padding: 30px 10px 30px 15px;
+  text-align: left;
+  color: #fff;
+  font-weight: 700;
+  margin-right: auto;
+  background: linear-gradient(90deg, #000, transparent);
 }
 
 .inner-container {
   display: grid;
   gap: 0.5rem;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  padding: 20px 25px;
+  padding: 25px 25px;
 }
 
 .pagination {
@@ -23,4 +40,20 @@
   /* border: 1px solid red; */
   color: #bebebe;
   font-size: 0.8rem;
+}
+
+@media screen and (min-width: 420px) {
+  .inner-container {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}
+@media screen and (min-width: 768px) {
+  .inner-container {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+@media screen and (min-width: 1260px) {
+  .inner-container {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
 }

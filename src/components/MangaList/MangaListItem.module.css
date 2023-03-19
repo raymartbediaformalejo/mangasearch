@@ -138,8 +138,6 @@ a {
   /* font-weight: 700; */
   font-size: 10px;
   padding: 3px 10px 3px 20px;
-  /* margin-top: -3px; */
-  /* margin-left: auto; */
   letter-spacing: 0.05rem;
   background: linear-gradient(270deg, #dc0914, rgba(220, 9, 20, 0));
   opacity: 1;
@@ -171,5 +169,21 @@ a {
 @media (max-width: 297px) {
   .img {
     height: 100%;
+  }
+}
+@media (min-width: 405px) {
+  .img {
+    height: 260px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .img {
+    height: 280px;
+  }
+}
+@media screen and (min-width: 1260px) {
+  .img {
+    height: 290px;
   }
 }

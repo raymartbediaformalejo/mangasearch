@@ -1,5 +1,6 @@
 import { singleActions } from "./manga-single-slice";
 import { mangaActions } from "./manga-slice";
+import { recommendationActions } from "./recommendation-slice";
 import { searchActions } from "./search-slice";
 
 export const fetchMangaData = (currentPage) => {
@@ -42,9 +43,61 @@ export const fetchMangaData = (currentPage) => {
 
     try {
       const { loadedManga, pageCountPagination } = await fetchData();
-      console.log(loadedManga);
       dispatch(mangaActions.replaceManga({ mangaArr: loadedManga || [] }));
       dispatch(mangaActions.pageCouter({ pageCountPagination }));
+    } catch (error) {
+      console.log(`💥💥 ${error}`);
+    }
+  };
+};
+export const fetchRecommendationMangaData = (currentPage) => {
+  return async (dispatch) => {
+    const fetchData = async () => {
+      const response = await fetch(
+        `https://api.jikan.moe/v4/recommendations/manga`
+      );
+
+      if (!response.ok)
+        throw new Error("Could not fetch recommendation manga data!");
+
+      const data = await response.json();
+      // console.log(data);
+
+      // const pageCountPagination =
+      //   data.pagination.items.total / data.pagination.items.per_page;
+
+      const loadedManga = Object.entries(data.data)
+        .map((manga) => {
+          return {
+            id: manga[1].entry[0].mal_id,
+            title: manga[1].entry[0].title,
+            image: manga[1].entry[0].images,
+            url: manga[1].entry[0].url,
+            userName: manga[1].user.username,
+            userUrl: manga[1].user.url,
+            date: manga[1].date,
+          };
+        })
+        .filter((obj, index, arr) => {
+          return arr.map((mapObj) => mapObj["id"]).indexOf(obj["id"]) === index;
+        })
+        .reduce((acc, obj) => {
+          if (acc.length < 20) {
+            acc.push(obj);
+          }
+          return acc;
+        }, []);
+
+      // console.log(loadedManga);
+
+      return { loadedManga };
+    };
+
+    try {
+      const { loadedManga } = await fetchData();
+      dispatch(
+        recommendationActions.replaceManga({ mangaArr: loadedManga || [] })
+      );
     } catch (error) {
       console.log(`💥💥 ${error}`);
     }

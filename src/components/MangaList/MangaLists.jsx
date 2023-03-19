@@ -23,6 +23,7 @@ const MangaList = () => {
 
   return (
     <div className={classes.container}>
+      <h2 className={classes["top-manga"]}>Top Manga</h2>
       <div className={classes["inner-container"]}>
         {mangaList.map((manga) => (
           <MangaListItem
