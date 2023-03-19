@@ -78,6 +78,7 @@ export const fetchMangaSingleData = (mangaId) => {
         status: manga.status,
         chapters: manga.chapters,
         members: manga.members,
+        url: manga.url,
       };
 
       return loadedManga;
@@ -96,7 +97,7 @@ export const fetchSearchData = (mangaToSearch, currentPage) => {
   return async (dispatch) => {
     const fetchData = async () => {
       const response = await fetch(
-        `https://api.jikan.moe/v4/manga?letter=${mangaToSearch}&page=${currentPage}`
+        `https://api.jikan.moe/v4/manga?letter=${mangaToSearch}&page=${currentPage}&order_by=score&sort=desc`
       );
       //
       if (!response.ok) throw new Error("Could not fetch manga data!");

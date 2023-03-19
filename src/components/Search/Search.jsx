@@ -12,7 +12,7 @@ import {
 import MainNavigation from "../MainNavigation/MainNavigation";
 import classes from "./Search.module.css";
 
-const Search = () => {
+const Search = (props) => {
   const dispatch = useDispatch();
   const mangaList = useSelector((state) => state.search.mangaArr);
   const currentPage = useSelector((state) => state.search.currentPage);
@@ -55,13 +55,16 @@ const Search = () => {
 
         <div className={classes["manga-container"]}>
           {mangaList.map((manga) => (
-            <Link href="" key={manga.id} className={classes["manga-item"]}>
+            <Link
+              to={`/manga/${manga.id}`}
+              key={manga.id}
+              className={classes["manga-item"]}
+            >
               <img
                 src={manga.image.jpg.image_url}
                 alt="manga"
                 className={classes.image}
               />
-              {/* <div></div> */}
               <p className={classes.title}>{manga.title}</p>
               <p className={classes.authors}>
                 {manga.authors[0] && manga.authors[0].name}

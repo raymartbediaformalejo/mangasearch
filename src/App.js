@@ -1,9 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import HomePage from "./pages/Home";
-import MangaSinglePage, {
-  loader as mangaSingleLoader,
-} from "./pages/MangaSingle";
+import MangaSinglePage from "./pages/MangaSingle";
 import SearchPage from "./pages/SearchPage";
 
 function App() {
