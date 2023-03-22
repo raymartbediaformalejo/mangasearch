@@ -21,6 +21,14 @@
   animation: top-fluid-img 50s linear infinite;
 }
 
+@media (min-width: 768px) {
+  .container {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .fluidimg {
     animation: top-fluid-img 30s linear infinite;

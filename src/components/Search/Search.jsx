@@ -19,6 +19,7 @@ const Search = (props) => {
   const pageCount = useSelector((state) => state.search.pageCount);
   const mangaText = useSelector((state) => state.search.mangaToSearch);
   const [page, setPage] = useState(1);
+  const [inputHasValue, setInputHasValue] = useState(false);
 
   const theme = createTheme({
     palette: {
@@ -34,7 +35,7 @@ const Search = (props) => {
     margin: "30px auto 0",
     "& ul": {
       display: "flex",
-      gap: "1rem",
+      gap: ".4rem",
       justifyContent: "center",
       alignItems: "center",
       color: "#fff",
@@ -48,7 +49,7 @@ const Search = (props) => {
     },
   };
 
-  console.log(mangaList);
+  // console.log(mangaList);
   useEffect(() => {
     const identifier = setTimeout(() => {
       dispatch(fetchSearchData(mangaText, currentPage));
@@ -65,10 +66,12 @@ const Search = (props) => {
 
   const searchInputHandler = (e) => {
     dispatch(mangaToSearch(e.target.value));
+    console.log(pageCount > 1 ? true : false);
+    setInputHasValue(e.target.value);
   };
 
   const handleChange = (_, value) => {
-    console.log(value);
+    // console.log(value);
     dispatch(searchGoToPage(value));
     setPage(value);
   };
@@ -107,30 +110,26 @@ const Search = (props) => {
             </Link>
           ))}
         </div>
+
+        {inputHasValue && pageCount !== 1 && (
+          <ThemeProvider theme={theme}>
+            <Stack spacing={2}>
+              <Pagination
+                hideNextButton={pageCount > 1 ? false : true}
+                hidePrevButton={pageCount > 1 ? false : true}
+                count={pageCount}
+                page={page}
+                onChange={handleChange}
+                color="secondary"
+                shape="rounded"
+                variant="outlined"
+                sx={paginationStyle}
+                size="medium"
+              />
+            </Stack>
+          </ThemeProvider>
+        )}
       </div>
-      <ThemeProvider theme={theme}>
-        <Stack spacing={2}>
-          <Pagination
-            count={pageCount}
-            page={page}
-            onChange={handleChange}
-            color="secondary"
-            shape="rounded"
-            variant="outlined"
-            sx={paginationStyle}
-            size="medium"
-          />
-        </Stack>
-      </ThemeProvider>
-      {/* <ReactPaginate
-        className={classes.pagination}
-        breakLabel="..."
-        nextLabel="next >"
-        onPageChange={handlePageClick}
-        pageCount={pageCount}
-        previousLabel="< prev"
-        renderOnZeroPageCount={null}
-      /> */}
     </>
   );
 };

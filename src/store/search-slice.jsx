@@ -10,7 +10,7 @@ const searchSlice = createSlice({
   },
   reducers: {
     replaceManga(state, action) {
-      console.log(state.mangaArr);
+      // console.log(state.mangaArr);
       state.mangaArr = action.payload.mangaArr;
     },
     searchManga(state, action) {

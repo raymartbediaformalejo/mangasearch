@@ -7,9 +7,10 @@ aside {
 
 .sub-header {
   display: flex;
+  /* flex-wrap: wrap; */
   width: 100%;
   align-items: flex-end;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   -webkit-box-align: end;
   margin-bottom: calc(0.5rem * 2);
 }
@@ -20,8 +21,12 @@ aside {
 }
 
 .title {
+  /* width: 200px; */
   color: #fff;
   font-size: 1.4rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   font-weight: 700;
   text-align: left;
   padding: 30px 0 25px 25px;
@@ -36,6 +41,7 @@ aside {
 }
 
 .sub-show-all {
+  width: 80px;
   font-size: 0.8rem;
   color: #191919;
   align-self: flex-end;
@@ -82,4 +88,10 @@ aside {
 
 .user {
   font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  aside {
+    margin-top: -60px;
+  }
 }

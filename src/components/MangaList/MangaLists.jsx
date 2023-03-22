@@ -27,7 +27,7 @@ const MangaList = () => {
     margin: "30px auto 0",
     "& ul": {
       display: "flex",
-      gap: "1rem",
+      gap: ".4rem",
       justifyContent: "center",
       alignItems: "center",
       color: "#fff",

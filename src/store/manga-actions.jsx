@@ -183,7 +183,7 @@ export const fetchSearchData = (mangaToSearch, currentPage) => {
 
     try {
       const { loadedManga, pageCountPagination } = await fetchData();
-      console.log(loadedManga);
+      // console.log(loadedManga);
       dispatch(searchActions.replaceManga({ mangaArr: loadedManga || [] }));
       dispatch(searchActions.pageCouter({ pageCountPagination }));
     } catch (error) {

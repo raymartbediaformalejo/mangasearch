@@ -6,8 +6,10 @@ const MainContent = () => {
   return (
     <>
       <div className={classes.fluidimg}></div>
-      <MangaList />
-      <RecommendationManga />
+      <div className={classes.container}>
+        <MangaList />
+        <RecommendationManga />
+      </div>
     </>
   );
 };
