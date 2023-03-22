@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ReactPaginate from "react-paginate";
+import { Pagination, createTheme, ThemeProvider, Stack } from "@mui/material";
 
 import MangaListItem from "./MangaListItem";
 import classes from "./MangaList.module.css";
@@ -11,14 +11,44 @@ const MangaList = () => {
   const mangaList = useSelector((state) => state.manga.mangaArr);
   const currentPage = useSelector((state) => state.manga.currentPage);
   const pageCount = useSelector((state) => state.manga.pageCount);
+  const [page, setPage] = useState(1);
+
+  const theme = createTheme({
+    palette: {
+      secondary: {
+        main: "#ffd600",
+      },
+    },
+  });
+
+  const paginationStyle = {
+    width: "100%",
+    maxWidth: "800px",
+    margin: "30px auto 0",
+    "& ul": {
+      display: "flex",
+      gap: "1rem",
+      justifyContent: "center",
+      alignItems: "center",
+      color: "#fff",
+    },
+    "& button": {
+      color: "#bebebe",
+      borderColor: "rgba(190, 190, 190, .2)",
+    },
+    "& div": {
+      color: "#bebebe",
+    },
+  };
 
   useEffect(() => {
     dispatch(fetchMangaData(currentPage));
   }, [dispatch, currentPage]);
 
-  const handlePageClick = (event) => {
-    dispatch(goToPage(event.selected + 1));
-    console.log(event.selected);
+  const handleChange = (_, value) => {
+    console.log(value);
+    dispatch(goToPage(value));
+    setPage(value);
   };
 
   return (
@@ -39,7 +69,7 @@ const MangaList = () => {
           />
         ))}
       </div>
-
+      {/* 
       <ReactPaginate
         className={classes.pagination}
         breakLabel="..."
@@ -48,7 +78,21 @@ const MangaList = () => {
         pageCount={pageCount}
         previousLabel="< prev"
         renderOnZeroPageCount={null}
-      />
+      /> */}
+      <ThemeProvider theme={theme}>
+        <Stack spacing={2}>
+          <Pagination
+            count={pageCount}
+            page={page}
+            onChange={handleChange}
+            color="secondary"
+            shape="rounded"
+            variant="outlined"
+            sx={paginationStyle}
+            size="medium"
+          />
+        </Stack>
+      </ThemeProvider>
     </div>
   );
 };

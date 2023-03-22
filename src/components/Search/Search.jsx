@@ -1,8 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
-import ReactPaginate from "react-paginate";
+import { Pagination, createTheme, ThemeProvider, Stack } from "@mui/material";
 
 import {
   fetchSearchData,
@@ -18,6 +18,35 @@ const Search = (props) => {
   const currentPage = useSelector((state) => state.search.currentPage);
   const pageCount = useSelector((state) => state.search.pageCount);
   const mangaText = useSelector((state) => state.search.mangaToSearch);
+  const [page, setPage] = useState(1);
+
+  const theme = createTheme({
+    palette: {
+      secondary: {
+        main: "#ffd600",
+      },
+    },
+  });
+
+  const paginationStyle = {
+    width: "100%",
+    maxWidth: "800px",
+    margin: "30px auto 0",
+    "& ul": {
+      display: "flex",
+      gap: "1rem",
+      justifyContent: "center",
+      alignItems: "center",
+      color: "#fff",
+    },
+    "& button": {
+      color: "#bebebe",
+      borderColor: "rgba(190, 190, 190, .2)",
+    },
+    "& div": {
+      color: "#bebebe",
+    },
+  };
 
   console.log(mangaList);
   useEffect(() => {
@@ -30,12 +59,18 @@ const Search = (props) => {
     };
   }, [dispatch, currentPage, mangaText]);
 
-  const handlePageClick = (event) => {
-    dispatch(searchGoToPage(event.selected + 1));
-  };
+  // const handlePageClick = (event) => {
+  //   dispatch(searchGoToPage(event.selected + 1));
+  // };
 
   const searchInputHandler = (e) => {
     dispatch(mangaToSearch(e.target.value));
+  };
+
+  const handleChange = (_, value) => {
+    console.log(value);
+    dispatch(searchGoToPage(value));
+    setPage(value);
   };
 
   return (
@@ -73,7 +108,21 @@ const Search = (props) => {
           ))}
         </div>
       </div>
-      <ReactPaginate
+      <ThemeProvider theme={theme}>
+        <Stack spacing={2}>
+          <Pagination
+            count={pageCount}
+            page={page}
+            onChange={handleChange}
+            color="secondary"
+            shape="rounded"
+            variant="outlined"
+            sx={paginationStyle}
+            size="medium"
+          />
+        </Stack>
+      </ThemeProvider>
+      {/* <ReactPaginate
         className={classes.pagination}
         breakLabel="..."
         nextLabel="next >"
@@ -81,7 +130,7 @@ const Search = (props) => {
         pageCount={pageCount}
         previousLabel="< prev"
         renderOnZeroPageCount={null}
-      />
+      /> */}
     </>
   );
 };
