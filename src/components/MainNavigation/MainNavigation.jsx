@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
-import { FiMenu, FiSearch } from "react-icons/fi";
+import { FiSearch } from "react-icons/fi";
 import { Link, NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import logo from "../../assets/logo.png";
 import classes from "./MainNavigation.module.css";
+import { mangaToSearch } from "../../store/manga-actions";
 
 const MainNavigation = (props) => {
+  const dispatch = useDispatch();
   const [isSearchPage, setIsSearchPage] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
 
@@ -16,7 +19,11 @@ const MainNavigation = (props) => {
   const clickMenuHandler = () => {
     setIsClicked((prev) => !prev);
   };
-  console.log(isClicked);
+
+  const inputSearchMangaHandler = (e) => {
+    console.log(e.target.value);
+    dispatch(mangaToSearch(e.target.value));
+  };
 
   return (
     <div className={classes.header}>
@@ -91,6 +98,7 @@ const MainNavigation = (props) => {
           <input
             placeholder="Search by title"
             className={classes["search-input"]}
+            onChange={inputSearchMangaHandler}
           />
           <Link to="/search" className={classes["search-inner-container"]}>
             <FiSearch className={classes.search} />

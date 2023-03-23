@@ -48,8 +48,6 @@ const Search = (props) => {
       color: "#bebebe",
     },
   };
-
-  // console.log(mangaList);
   useEffect(() => {
     const identifier = setTimeout(() => {
       dispatch(fetchSearchData(mangaText, currentPage));
@@ -60,10 +58,6 @@ const Search = (props) => {
     };
   }, [dispatch, currentPage, mangaText]);
 
-  // const handlePageClick = (event) => {
-  //   dispatch(searchGoToPage(event.selected + 1));
-  // };
-
   const searchInputHandler = (e) => {
     dispatch(mangaToSearch(e.target.value));
     console.log(pageCount > 1 ? true : false);
@@ -71,7 +65,6 @@ const Search = (props) => {
   };
 
   const handleChange = (_, value) => {
-    // console.log(value);
     dispatch(searchGoToPage(value));
     setPage(value);
   };

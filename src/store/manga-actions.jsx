@@ -197,3 +197,5 @@ export const goToPage = mangaActions.pageChanger;
 export const searchGoToPage = searchActions.pageChanger;
 
 export const mangaToSearch = searchActions.searchManga;
+
+export const mangaToSearchFromHome = searchActions.searchMangaFromHome;

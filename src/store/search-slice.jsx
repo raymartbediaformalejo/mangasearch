@@ -5,6 +5,7 @@ const searchSlice = createSlice({
   initialState: {
     mangaArr: [],
     mangaToSearch: "",
+    mangaToSearchFromHome: "",
     currentPage: 1,
     pageCount: 0,
   },
@@ -15,6 +16,9 @@ const searchSlice = createSlice({
     },
     searchManga(state, action) {
       state.mangaToSearch = action.payload;
+    },
+    searchMangaFromHome(state, action) {
+      state.mangaToSearchFromHome = action.payload;
     },
     pageChanger(state, action) {
       state.currentPage = action.payload;
