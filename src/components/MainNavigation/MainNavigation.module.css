@@ -32,7 +32,7 @@
   justify-content: space-between;
 }
 
-.header div .logo-wrapper {
+.logo-wrapper {
   position: relative;
   top: 14px;
   width: 100%;
@@ -40,7 +40,7 @@
   margin: 0 20%;
 }
 
-.header div .logo-wrapper div {
+.logo-wrapper div {
   width: 105px;
   margin: 0 auto;
 }
@@ -207,13 +207,13 @@
   visibility: hidden;
 }
 
-@media (min-width: 830px) {
+@media (min-width: 844px) {
   .chumberger-wrapper {
     display: none;
   }
-  .header div .logo-wrapper {
+  .logo-wrapper {
     width: 15%;
-    margin: 0;
+    margin: 0 2rem 0 0;
   }
   .search-wrapper {
     position: relative;
@@ -243,10 +243,12 @@
     width: auto;
   }
 
-  .nav-list {
+  .large.nav-list {
+    display: flex;
+    flex-direction: row;
+    gap: 1.2rem;
     margin: 0 1.6em;
     width: 100%;
-    display: flex;
     justify-content: start;
     text-transform: uppercase;
     list-style-type: none;

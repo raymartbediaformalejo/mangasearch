@@ -70,7 +70,6 @@ const MainNavigation = (props) => {
             <img src={logo} alt="manga search" className={classes.logo} />
           </div>
         </Link>
-        <div className={classes.large}></div>
         <ul className={`${classes.large} ${classes["nav-list"]} `}>
           <li className={classes["nav-item"]}>
             <NavLink className={classes["nav-link"]}>Top Manga</NavLink>
