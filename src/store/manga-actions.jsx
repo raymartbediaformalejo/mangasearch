@@ -61,7 +61,7 @@ export const fetchRecommendationMangaData = (currentPage) => {
         throw new Error("Could not fetch recommendation manga data!");
 
       const data = await response.json();
-      // console.log(data);
+      console.log(data);
 
       // const pageCountPagination =
       //   data.pagination.items.total / data.pagination.items.per_page;

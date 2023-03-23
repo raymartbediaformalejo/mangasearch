@@ -79,13 +79,44 @@ const MainNavigation = (props) => {
         </Link>
         <ul className={`${classes.large} ${classes["nav-list"]} `}>
           <li className={classes["nav-item"]}>
-            <NavLink className={classes["nav-link"]}>Top Manga</NavLink>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? classes.active : undefined
+              }
+            >
+              Home
+            </NavLink>
           </li>
           <li className={classes["nav-item"]}>
-            <NavLink className={classes["nav-link"]}>Recommendations</NavLink>
+            <NavLink
+              to="/topmanga"
+              className={({ isActive }) =>
+                isActive ? classes.active : undefined
+              }
+            >
+              Top Manga
+            </NavLink>
           </li>
+          {/* <li className={classes["nav-item"]}>
+            <NavLink
+              to="/recommendation"
+              className={({ isActive }) =>
+                isActive ? classes.active : undefined
+              }
+            >
+              Recommendations
+            </NavLink>
+          </li> */}
           <li className={classes["nav-item"]}>
-            <NavLink className={classes["nav-link"]}>About</NavLink>
+            <NavLink
+              to="/aboutus"
+              className={({ isActive }) =>
+                isActive ? classes.active : undefined
+              }
+            >
+              About
+            </NavLink>
           </li>
         </ul>
         <div

@@ -163,13 +163,17 @@
   font-weight: 600;
 }
 
-.nav-link {
+.nav-item a {
   color: #bebebe;
 }
 
-.nav-link:hover {
+.nav-item a:hover {
   color: #ffd600;
   transition: all 0.1s ease;
+}
+
+.nav-item .active {
+  color: #ffd600;
 }
 
 .large.nav-list {
@@ -258,14 +262,14 @@
   .nav-item + .nav-item {
     margin-left: 2em;
   }
-  .nav-link {
+  .nav-item a {
     color: #bebebe;
     display: inline-block;
     height: 80px;
     line-height: 100px;
   }
 
-  .nav-link:hover {
+  .nav-item a:hover {
     color: #ffd600;
     border-top: 5px solid #ffd600;
     transition: all 0.1s ease;
