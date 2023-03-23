@@ -21,6 +21,12 @@
   animation: top-fluid-img 50s linear infinite;
 }
 
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
 @media (min-width: 768px) {
   .container {
     display: flex;

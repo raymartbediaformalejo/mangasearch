@@ -69,19 +69,11 @@ const MangaList = () => {
           />
         ))}
       </div>
-      {/* 
-      <ReactPaginate
-        className={classes.pagination}
-        breakLabel="..."
-        nextLabel="next >"
-        onPageChange={handlePageClick}
-        pageCount={pageCount}
-        previousLabel="< prev"
-        renderOnZeroPageCount={null}
-      /> */}
       <ThemeProvider theme={theme}>
         <Stack spacing={2}>
           <Pagination
+            hideNextButton={pageCount > 1 ? false : true}
+            hidePrevButton={pageCount > 1 ? false : true}
             count={pageCount}
             page={page}
             onChange={handleChange}

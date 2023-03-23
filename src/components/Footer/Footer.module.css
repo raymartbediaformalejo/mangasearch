@@ -28,3 +28,15 @@
   color: #a8a8a8;
   letter-spacing: 0.05rem;
 }
+
+@media (min-width: 768px) {
+  .inner-container {
+    border-radius: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 0, 0, 0.5),
+      transparent
+    );
+  }
+}
