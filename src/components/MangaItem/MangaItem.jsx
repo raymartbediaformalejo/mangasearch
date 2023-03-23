@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchMangaSingleData } from "../../store/manga-actions";
+import Footer from "../Footer/Footer";
 import MainNavigation from "../MainNavigation/MainNavigation";
 import classess from "./MangaItem.module.css";
 
@@ -87,6 +88,7 @@ const MangaItem = (props) => {
         </div>
         <div></div>
       </div>
+      <Footer />
     </>
   );
 };

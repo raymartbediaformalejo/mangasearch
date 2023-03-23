@@ -11,6 +11,7 @@ import {
 } from "../../store/manga-actions";
 import MainNavigation from "../MainNavigation/MainNavigation";
 import classes from "./Search.module.css";
+import Footer from "../Footer/Footer";
 
 const Search = (props) => {
   const dispatch = useDispatch();
@@ -123,6 +124,7 @@ const Search = (props) => {
           </ThemeProvider>
         )}
       </div>
+      <Footer />
     </>
   );
 };
